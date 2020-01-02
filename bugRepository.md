@@ -66,6 +66,41 @@ _tips: electron npm_
 
 _tips: npm_
 
+## 8.接口调用不到服务
+
+解决方式&原因：[webpack 代理](https://webpack.docschina.org/configuration/dev-server/#devserver-proxy)
+
+```
+module.exports = {
+  //...
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+	proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        bypass: function(req, res, proxyOptions) {
+          if (req.headers.accept.indexOf('html') !== -1) {
+            console.log('Skipping proxy for browser request.');
+            return '/index.html';
+          }
+        }
+      }
+    },
+	proxy: [{
+      context: ['/auth', '/api'],
+      target: 'http://localhost:3000',
+    },{
+      context: ['/variableManager'],
+      target: 'ws://localhost:3000', // socketIO 代理
+    }]
+  }
+}
+```
+
+_tips: webpack 代理_
+
 ##
 
 解决方式&原因：
