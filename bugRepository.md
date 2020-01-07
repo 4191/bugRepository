@@ -101,11 +101,11 @@ module.exports = {
 
 _tips: webpack 代理_
 
-##
+## 9.objects are not valid as a react child
 
-解决方式&原因：
+解决方式&原因：treeData 数据中有<span>标签，导致数据被判为 obj，删除相关标签，用字符串代替
 
-_tips: _
+_tips: react 数据_
 
 ##
 
