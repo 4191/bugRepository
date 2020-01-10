@@ -107,8 +107,12 @@ _tips: webpack 代理_
 
 _tips: react 数据_
 
-##
+## 10.webpack 打包 内存溢出
 
-解决方式&原因：
+解决方式：
 
-_tips: _
+1. 用全局配置的 webpack 发布时，修改全局的 webpack.cmd 中 node 后面添加参数 --max_old_space_size=2048 或者更大（我没试过）
+2. 用局部的 webpack 发布时，修改本地的./node_modules/.bin/webpack.cmd node 后面添加参数 --max_old_space_size=2048 或者更大
+3. bc 前端 webpack 打包内存溢出以前出现过，因为 build 的时候用了--process --color --ode production，现在 BC 前端不报错是因为把 webpack 后面的参数去掉了，如果加上，应该也同样会报内存溢出的错误
+
+_tips: webpack 打包 内存溢出_
