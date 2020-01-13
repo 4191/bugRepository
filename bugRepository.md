@@ -114,5 +114,16 @@ _tips: react 数据_
 1. 用全局配置的 webpack 发布时，修改全局的 webpack.cmd 中 node 后面添加参数 --max_old_space_size=2048 或者更大（我没试过）
 2. 用局部的 webpack 发布时，修改本地的./node_modules/.bin/webpack.cmd node 后面添加参数 --max_old_space_size=2048 或者更大
 3. bc 前端 webpack 打包内存溢出以前出现过，因为 build 的时候用了--process --color --ode production，现在 BC 前端不报错是因为把 webpack 后面的参数去掉了，如果加上，应该也同样会报内存溢出的错误
+4. 模块按需引入；
+5. 删除多余的 npm 包
 
 _tips: webpack 打包 内存溢出_
+
+## 11.node-gyp 环境搭建
+
+设置环境变量：NODEJS_ORG_MIRROR=http://repo.hirain.net/...../node-dist/
+先全局安装node-gyp, npm install node-gyp
+再安装gyp头文件， node-gyp install
+还有一个环境变量也设置上：IOJS_ORG_MIRROR=http://repo...../iojs/
+
+_tips: node-gyp 环境搭建_
