@@ -122,8 +122,34 @@ _tips: webpack 打包 内存溢出_
 ## 11.node-gyp 环境搭建
 
 设置环境变量：NODEJS_ORG_MIRROR=http://repo.hirain.net/...../node-dist/
-先全局安装node-gyp, npm install node-gyp
-再安装gyp头文件， node-gyp install
+先全局安装 node-gyp, npm install node-gyp
+再安装 gyp 头文件， node-gyp install
 还有一个环境变量也设置上：IOJS_ORG_MIRROR=http://repo...../iojs/
 
 _tips: node-gyp 环境搭建_
+
+## 12. 启动 node 程序报错:event.js:183 throw er; // unhandled 'error' event
+
+- 原因：端口被占用
+- 解决方式：
+  1. 找到占用端口的进程
+  ```
+  lsof -i:端口号  // 输出：command:进程名称  pid:进程标识符
+  netstat -tunlp|grep 端口号 // 输出末尾 22283/node 表示占用端口的进程标识符合进程名称
+  ```
+  2. 杀掉进程
+  ```
+  kill -9 PID
+  ```
+  3. 重启服务
+
+_通过取消 webpack devserver port 配置后，系统可自动分配端口_
+_tips:webpack node 端口_
+
+## 13.webpack 报错：Module parse failed: Unexpected character '�' (1:0)
+
+- 原因：缺少或 url-loader 、 file-loader 配置不完善
+- 解决方式：引入相关 loader
+
+_处理后需要重启 webpack_
+_tips:webpack loader_
