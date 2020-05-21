@@ -46,13 +46,13 @@ _tips:react iframe html 乱码 编码错误 20191231_
 
 _tips: antd table 20191231_
 
-## 5.sha-xx 对不上
+## 5. sha-xx 对不上
 
 解决方式&原因：npm i npm -g // 升级 npm 版本
 
 _tips: npm sha-xxx_
 
-## 6.npm i electron 失败
+## 6. npm i electron 失败
 
 原因：网不行；electron_mirror 配置不对；
 解决方式： 1.拷贝 zip、txt 至路径：c:\users\xx\appdata\local\electron\cache
@@ -60,13 +60,13 @@ _tips: npm sha-xxx_
 
 _tips: electron npm_
 
-## 7.TypeError：Cannot read property 'match' of undefined
+## 7. TypeError：Cannot read property 'match' of undefined
 
 解决方式&原因：npm cache clean -f; 删除 package-lock.json
 
 _tips: npm_
 
-## 8.接口调用不到服务
+## 8. 接口调用不到服务
 
 解决方式&原因：[webpack 代理](https://webpack.docschina.org/configuration/dev-server/#devserver-proxy)
 
@@ -101,13 +101,13 @@ module.exports = {
 
 _tips: webpack 代理_
 
-## 9.objects are not valid as a react child
+## 9. objects are not valid as a react child
 
 解决方式&原因：treeData 数据中有<span>标签，导致数据被判为 obj，删除相关标签，用字符串代替
 
 _tips: react 数据_
 
-## 10.webpack 打包 内存溢出
+## 10. webpack 打包 内存溢出
 
 解决方式：
 
@@ -119,16 +119,68 @@ _tips: react 数据_
 
 _tips: webpack 打包 内存溢出_
 
-## 11.node-gyp 环境搭建
+## 11. node-gyp 环境搭建
 
 设置环境变量：NODEJS_ORG_MIRROR=http://repo.hirain.net/...../node-dist/
-先全局安装node-gyp, npm install node-gyp
-再安装gyp头文件， node-gyp install
+先全局安装 node-gyp, npm install node-gyp
+再安装 gyp 头文件， node-gyp install
 还有一个环境变量也设置上：IOJS_ORG_MIRROR=http://repo...../iojs/
 
 _tips: node-gyp 环境搭建_
 
-## 12. webpack devServer proxy 配置不生效
+## 12. 启动 node 程序报错:event.js:183 throw er; // unhandled 'error' event
+
+- 原因：端口被占用
+- 解决方式：
+  1. 找到占用端口的进程
+  ```
+  lsof -i:端口号  // 输出：command:进程名称  pid:进程标识符
+  netstat -tunlp|grep 端口号 // 输出末尾 22283/node 表示占用端口的进程标识符合进程名称
+  ```
+  2. 杀掉进程
+  ```
+  kill -9 PID
+  ```
+  3. 重启服务
+
+_通过取消 webpack devserver port 配置后，系统可自动分配端口_
+_tips:webpack node 端口_
+
+## 13. webpack 报错：Module parse failed: Unexpected character '�' (1:0)
+
+- 原因：缺少或 url-loader 、 file-loader 配置不完善
+- 解决方式：引入相关 loader
+
+_处理后需要重启 webpack_
+_tips:webpack loader_
+
+## 14. must call getfieldprops with valid name string
+
+- 原因：引用重复（引用中有 e ， 与方法中 e 冲突）
+- 解决方式： 改掉冲突的 e 的名称
+  _tips:重复引用 import_
+
+## 15. Uncaught (in promise)
+
+- 原因：promise 写法有问题
+- 解决方式： 在后面加上.catch((e) => {})
+  ```
+  return new Promise((resolve, reject) => {
+     console.log
+    }).catch((e) => {})
+  ```
+  _tips: Promise catch_
+
+
+## 16. webpack devServer proxy 配置不生效
 原因： webpack proxy 配置，只转发localhost:8080的数据,其他端口的数据并不进行代理操作
 解决办法：将fetch请求的头部改为"localhost:8080"或"/"
 _tips: webpack devServer proxy 代理_
+
+##
+
+- 原因：
+- 解决方式：
+  _tips:_
+
+<!-- 图片写法  ![test](./test.png 'test') -->
