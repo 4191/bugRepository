@@ -127,3 +127,8 @@ _tips: webpack 打包 内存溢出_
 还有一个环境变量也设置上：IOJS_ORG_MIRROR=http://repo...../iojs/
 
 _tips: node-gyp 环境搭建_
+
+## 12. webpack devServer proxy 配置不生效
+原因： webpack proxy 配置，只转发localhost:8080的数据,其他端口的数据并不进行代理操作
+解决办法：将fetch请求的头部改为"localhost:8080"或"/"
+_tips: webpack devServer proxy 代理_
