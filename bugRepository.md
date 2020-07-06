@@ -171,9 +171,17 @@ _tips:webpack loader_
   ```
   _tips: Promise catch_
 
-
 ## 16. webpack devServer proxy 配置不生效
-原因： webpack proxy 配置，只转发localhost:8080的数据,其他端口的数据并不进行代理操作
-解决办法：将fetch请求的头部改为"localhost:8080"或"/"
+
+原因： webpack proxy 配置，只转发 localhost:8080 的数据,其他端口的数据并不进行代理操作
+解决办法：将 fetch 请求的头部改为"localhost:8080"或"/"
 _tips: webpack devServer proxy 代理_
 
+## 17. this.setState()里取不到 event.target.value
+
+![event.tart==null](img/event.persist.png)
+
+- 解决办法：调用 event.persist()综合事件会将事件从池中删除，从而允许异步保留对事件的引用。
+- 参考： [react 事件重用](https://medium.com/trabe/react-syntheticevent-reuse-889cd52981b6)
+
+_tips: react event.persist()_
