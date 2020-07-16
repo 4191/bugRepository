@@ -185,3 +185,13 @@ _tips: webpack devServer proxy 代理_
 - 参考： [react 事件重用](https://medium.com/trabe/react-syntheticevent-reuse-889cd52981b6)
 
 _tips: react event.persist()_
+
+## 18. first-child 伪类权重影响 > 子集样式
+
+- 错误写法：
+  ![less first-child bad](img/less%20first-child%20bad.png)
+
+- 正确写法：
+  ![less first-child](img/less%20first-child.png)
+
+_tips: less 权重 > 伪类 :first-child_
