@@ -195,3 +195,17 @@ _tips: react event.persist()_
   ![less first-child](img/less%20first-child.png)
 
 _tips: less 权重 > 伪类 :first-child_
+
+## 19. babel 后 less 文件缺失
+
+原因： babel 未编译内容不会自动出现在输出（dist）文件夹内，需要添加 copy-files 命令参数
+
+```
+<!-- 原来的编译命令（package.json script) -->
+babel src --out-dir dist
+
+<!-- 修改后的编译命令 -->
+babel src --out-dir dist --copy-files
+```
+
+_tips: less babel npm run build_
