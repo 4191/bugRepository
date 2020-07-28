@@ -209,3 +209,16 @@ babel src --out-dir dist --copy-files
 ```
 
 _tips: less babel npm run build_
+
+## 20. 问题现象：
+
+![git-browserslist](img/git-browserslist.png)
+
+- 修改前：
+  ![git-browserslist-before](img/git-browserslist-before.png)
+- 修改后：
+  ![git-browserslist-after](img/git-browserslist-after.png)
+- 其他修改思路参考：
+  ![git-browserslist-package](img/git-browserslist-package.png)
+
+_tips: git browserslist webpack_
