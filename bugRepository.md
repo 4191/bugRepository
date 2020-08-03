@@ -222,3 +222,10 @@ _tips: less babel npm run build_
   ![git-browserslist-package](img/git-browserslist-package.png)
 
 _tips: git browserslist webpack_
+
+## 21. form 组件 input 等 item 内容不更新
+
+- 原因： 没有加 key 值
+- 解决方法：给 form 添加对应 key 值，react 在监听到 key 值发生变化时才会进行相关重绘操作： ![form antd 4.x](img/form%20antd%204.x.png)
+
+_tips: antd 4 key 不刷新 不重绘_
