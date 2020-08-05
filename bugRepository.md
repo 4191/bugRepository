@@ -229,3 +229,10 @@ _tips: git browserslist webpack_
 - 解决方法：给 form 添加对应 key 值，react 在监听到 key 值发生变化时才会进行相关重绘操作： ![form antd 4.x](img/form%20antd%204.x.png)
 
 _tips: antd 4 key 不刷新 不重绘_
+
+## 22. input 等 输入框，输入一个字符自动失焦
+
+- 原因： key 值使用了 uuid()，每次输入一个字符，key 就发生了变化
+- 解决方法：改为其他 key 值
+
+_tips: key 只能输入一个字符 input inputnumber_
