@@ -236,3 +236,11 @@ _tips: antd 4 key 不刷新 不重绘_
 - 解决方法：改为其他 key 值
 
 _tips: key 只能输入一个字符 input inputnumber_
+
+## 23. chrome 56 鼠标滚动事件 wheel 无法 peventDefault 控制台报错："intervention unable to preventdefault inside passive event listner due totarget being treated as passive"
+
+- 原因： chrome 为了优化性能在 56 以上的版本对这块进行了改动（但也给了解决方法，虽然对 react 不优化，react 官方还没有处理）
+- 解决方法：![wheel passive](img/wheel%20passive.png)
+  [参考 blog](https://www.cnblogs.com/crazycode2/p/9692171.html)
+
+_prenventDefault 失效 chrome passive_
