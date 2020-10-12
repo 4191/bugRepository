@@ -241,6 +241,50 @@ _tips: key 只能输入一个字符 input inputnumber_
 
 - 原因： chrome 为了优化性能在 56 以上的版本对这块进行了改动（但也给了解决方法，虽然对 react 不优化，react 官方还没有处理）
 - 解决方法：![wheel passive](img/wheel%20passive.png)
-  [参考 blog](https://www.cnblogs.com/crazycode2/p/9692171.html)
+
+  > [参考 1](https://www.cnblogs.com/crazycode2/p/9692171.html)
+
+  > [参考 2](https://github.com/transcriptic/react-map-interaction/commit/e76d04520097d1903115840cad93ad443c5da157)
 
 _prenventDefault 失效 chrome passive_
+
+## 24. The message port closed before a response was received.
+
+- 原因：第三方扩展程序、个人开发的扩展程序有问题；最近未检查的运行时错误：在接收到 response 响应消息之前，消息通道的端口就已经关闭了。
+- 解决方法： 删除错误的拓展程序 > [参考 1](https://www.hangge.com/blog/cache/detail_2327.html) > [参考 2](https://blog.csdn.net/lamp_yang_3533/article/details/100174074)
+  _chrome 拓展_
+
+## 25. Uncaught ReferenceError: regeneratorRuntime is not defined
+
+- 原因： 缺少 await 相关 babel plugin
+- 解决方法：添加 babel-plugin-transform-runtime 依赖
+- 具体配置.babelrc
+
+  ```
+  {
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-decorators",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements",
+    "transform-runtime"
+  ]
+  }
+  ```
+
+  _transform-runtime regeneratorRuntime babel await async_
+
+## 26. ES6 变量解构 - Invalid attempt to destructure non-iterable instance
+
+- 原因： 被解构的对象、数组、变量类型不对，或者和结构方式不对应；
+- 解决方法： 对应起来，
+
+_结构 es6_
+
+## 27. Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH
+
+- 原因：pm2 不好使了
+- 解决方法： 删除对应 PM2 列表中的服务，重新 start 即可
+  _pm2 文件 加载失败_
